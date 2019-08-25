@@ -32,7 +32,6 @@ function reducer(state, action) {
   }
 }
 
-
 function LoadStateManager({children}) {
   const [state, dispatch] = useReducer(reducer, [])
 
@@ -44,7 +43,7 @@ function LoadStateManager({children}) {
   }, [dispatch])
 
   useEffect(() => {
-    console.log(`current state: ` + JSON.stringify(state))
+    console.log('current state: ' + JSON.stringify(state))
   }, [state])
 
   const manager = {

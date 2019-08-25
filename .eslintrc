@@ -1,1 +1,9 @@
-{ "extends": "react-app" }
+{ 
+  "extends": "react-app",
+  "rules": {
+    "semi": ["error", "never"],
+    "quotes": ["error", "single"],
+    "no-multiple-empty-lines": ["error", {"max": 1}],
+    "jsx-quotes": ["error", "prefer-single"]
+  }
+}
