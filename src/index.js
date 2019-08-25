@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { TextInput } from './lib'
 import { useLoadState, LoadStateManager } from './lib/LoadStateContext'
+import 'normalize.css/normalize.css'
 
 const App = () => {
   const test1 = useLoadState('test1')
