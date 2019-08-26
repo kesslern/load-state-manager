@@ -1,8 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { TextInput } from './lib'
-import { useLoadState, LoadStateManager } from './lib/LoadStateContext'
-import 'normalize.css/normalize.css'
+import { useLoadState, LoadStateManager } from './lib'
 
 const App = () => {
   const test1 = useLoadState('test1')
@@ -10,11 +8,16 @@ const App = () => {
 
   return (
     <div style={{ width: 640, margin: '15px auto' }}>
-
-      <h1>Hello React</h1>
-      <button onClick={test1.toggle}>Click</button>
-      <button onClick={test2.toggle}>Click</button>
-      <TextInput label='Email Address' placeholder='name@example.com' />
+      <div>
+        <h3>Test1</h3>
+        <button className='pure-button' onClick={test1.toggle}>Click</button>
+        <div>Currently loading: {`${test1.current === true}`}</div>
+      </div>
+      <div>
+        <h3>Test2</h3>
+        <button className='pure-button' onClick={test2.toggle}>Click</button>
+        <div>Currently loading: {`${test2.current === true}`}</div>
+      </div>
     </div>
   )
 }
