@@ -1,21 +1,27 @@
 class manager {
 
-  state = []
+  state = {}
   subscriptions = []
 
   _reducer(state, action) {
+    const key = action.payload
     switch (action.type) {
-      case 'toggle':
-        const key = action.payload
-        const index = state.indexOf(key)
-        console.log(`toggling key ${key} index ${index}`)
+      case 'start':
+        return {
+          ...state,
+          [key]: 'loading'
+        }
 
-        if (index === -1) {
-          return [...state, action.payload]
-        } else {
-          const newState = state.slice(0)
-          newState.splice(index, 1)
-          return newState
+      case 'done':
+        return {
+          ...state,
+          [key]: 'done'
+        }
+
+      case 'error':
+        return {
+          ...state,
+          [key]: 'error'
         }
 
       default:
@@ -28,12 +34,28 @@ class manager {
     this.subscriptions.forEach(it => it())
   }
 
-  toggle = (key) => {
+  startLoading = key => {
     this._dispatch({
-      type: 'toggle',
+      type: 'start',
       payload: key
     })
   }
+
+  doneLoading = key => {
+    this._dispatch({
+      type: 'done',
+      payload: key
+    })
+  }
+
+  errorLoading = key => {
+    this._dispatch({
+      type: 'error',
+      payload: key
+    })
+  }
+
+  getState = key => this.state[key] || 'uninitialized'
 
   subscribe(func) {
     this.subscriptions.push(func)

@@ -10,13 +10,17 @@ const App = () => {
     <div style={{ width: 640, margin: '15px auto' }}>
       <div>
         <h3>Test1</h3>
-        <button className='pure-button' onClick={test1.toggle}>Click</button>
-        <div>Currently loading: {`${test1.current === true}`}</div>
+        <button className='pure-button' onClick={test1.start}>Start</button>
+        <button className='pure-button' onClick={test1.done}>Done</button>
+        <button className='pure-button' onClick={test1.error}>Error</button>
+        <div>Current state: {`${test1.current}`}</div>
       </div>
       <div>
         <h3>Test2</h3>
-        <button className='pure-button' onClick={test2.toggle}>Click</button>
-        <div>Currently loading: {`${test2.current === true}`}</div>
+        <button className='pure-button' onClick={test2.start}>Start</button>
+        <button className='pure-button' onClick={test2.done}>Done</button>
+        <button className='pure-button' onClick={test2.error}>Error</button>
+        <div>Current state: {`${test2.current}`}</div>
       </div>
     </div>
   )

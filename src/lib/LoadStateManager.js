@@ -9,16 +9,10 @@ function LoadStateManager({ children }) {
 
   useEffect(() => {
     if (!subscribed) {
-      console.log('subscribing')
       setSubscribed(true)
       manager.subscribe(update)
     }
   }, [subscribed, update])
-
-  useEffect(() => {
-    console.log('useeffect')
-    console.log(manager.state)
-  })
 
   return <Context.Provider value={{manager}}>
     {children}

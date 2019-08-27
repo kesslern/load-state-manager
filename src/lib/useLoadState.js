@@ -5,8 +5,10 @@ const useLoadState = key => {
   const { manager } = useContext(Context)
 
   return {
-    current: manager.state.includes(key), 
-    toggle: () => manager.toggle(key)
+    current: manager.getState(key),
+    start: () => manager.startLoading(key),
+    done: () => manager.doneLoading(key),
+    error: () => manager.errorLoading(key),
    }
 }
 
